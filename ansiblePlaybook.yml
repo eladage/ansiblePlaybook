@@ -36,6 +36,9 @@
       private: no
       default: "Deployed with Ansible"
 
+  # Grab the current date and time.
+  tasks:
+  - set_fact: creationdate="{{lookup('pipe','date "+%m/%d/%Y %H:%M %p"')}}"
 
 - name: Kali Ansible VM
   vmware_guest:
