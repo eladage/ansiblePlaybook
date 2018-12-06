@@ -40,29 +40,29 @@
   tasks:
   - set_fact: creationdate="{{lookup('pipe','date "+%m/%d/%Y %H:%M %p"')}}"
 
-- name: Kali Ansible VM
-  vmware_guest:
-    hostname: "{{ vcenter_hostname }}"
-    username: "{{ vcenter_username }}"
-    password: "{{ vcenter_password }}"
-    resource_pool: '{{ resource_pool }}'
-    validate_certs: no
-    datacenter: Edwards
-    state: present
-    folder: /Edwards/BEST/IT 416 - System Integration and Architecture/Ladage
-    template: Kali-Template
-    name: IT416-Kali-Ladage
-    hardware:
-      memory_mb: 512
-      num_cpus: 4
-    cluster: BEST
-    networks:
-      - name: VM Network
-        ip: 192.168.5.244
-        netmask: 255.255.255.0
-        gateway: 192.168.5.254
-    wait_for_ip_address: True
-    customization:
-      domain: internal.it416.com
-      dns_servers:
-        - 8.8.8.8
+  - name: Kali Ansible VM
+    vmware_guest:
+      hostname: "{{ vcenter_hostname }}"
+      username: "{{ vcenter_username }}"
+      password: "{{ vcenter_password }}"
+      resource_pool: '{{ resource_pool }}'
+      validate_certs: no
+      datacenter: Edwards
+      state: present
+      folder: /Edwards/BEST/IT 416 - System Integration and Architecture/Ladage
+      template: Kali-Template
+      name: IT416-Kali-Ladage
+      hardware:
+        memory_mb: 512
+        num_cpus: 4
+      cluster: BEST
+      networks:
+        - name: VM Network
+          ip: 192.168.5.244
+          netmask: 255.255.255.0
+          gateway: 192.168.5.254
+      wait_for_ip_address: True
+      customization:
+        domain: internal.it416.com
+        dns_servers:
+          - 8.8.8.8
