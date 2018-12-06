@@ -63,4 +63,3 @@
       domain: internal.it416.com
       dns_servers:
         - 8.8.8.8
-  delegate_to: localhost
